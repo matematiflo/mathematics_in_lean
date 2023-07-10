@@ -27,12 +27,6 @@ exact ⟨p, np, pp⟩
 #eval Prime 2
 #eval Prime 4
 
-example (p : ℕ) : Decidable (Prime p) := by
-  exact decidablePrime p
-
-example : Prime 37 := by
-  norm_num
-
 #check 1 + 1 = 2
 #check ℕ
 #check Prop
@@ -65,7 +59,14 @@ example : Prime 37 := by
 
 def test : 1 + 1 = 2 := Eq.refl 2
 #print axioms test
+#print axioms Eq.refl
 
 def sequence_of_Prop : ℕ → Prop :=  λ n => n ≥ 0
 #check sequence_of_Prop
 #check @sequence_of_Prop
+
+example (p : ℕ) : Decidable (Prime p) := by
+  exact decidablePrime p
+
+example : Prime 37 := by
+  norm_num
